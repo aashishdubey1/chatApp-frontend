@@ -1,4 +1,8 @@
 import {createBrowserRouter,Navigate,RouterProvider} from 'react-router'
+import AuthLayout from './components/AuthLayout'
+import { HomePage } from './pages/HomePage'
+import LoginPage from './pages/LoginPage'
+import SignUpPage from './pages/SignUpPage'
 
 
 const router = createBrowserRouter([
@@ -20,7 +24,7 @@ const router = createBrowserRouter([
       },
       {
         path:'signup',
-        element:<SignupPage />
+        element:<SignUpPage />
       }
     ]
   }
