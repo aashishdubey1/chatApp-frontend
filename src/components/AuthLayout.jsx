@@ -13,7 +13,7 @@ const AuthLayout = () => {
           patternAlpha={15}
       />
           <Outlet />
-          <MagnetLines className='absolute top-40 right-44 invisible lg:right-20 lg:top-44 lg:visible'
+          <MagnetLines className='absolute top-40 right-44 invisible lg:right-60 lg:top-44 lg:visible'
             rows={9}
             columns={9}
             containerSize="50vmin"
