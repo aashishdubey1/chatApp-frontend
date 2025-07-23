@@ -6,8 +6,11 @@ import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
+import { useAuth } from '@/context/AuthContext';
 
 const SignupPage = () => {
+
+  const {login} = useAuth()
 
   const navigate = useNavigate()
 
@@ -37,7 +40,7 @@ async function handleSubmit(e) {
       throw new Error(data.message || "Login failed");
     }
 
-    localStorage.setItem("token", data.token); 
+    login(data.token)
     toast.success("Logged in successfully! 🎊"); 
 
     setEmail(""); 

@@ -6,10 +6,12 @@ import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
+import { useAuth } from '@/context/AuthContext';
+
 
 const LoginPage = () => {
   const navigate = useNavigate()
-
+  const {login} = useAuth()
   const [email,setEmail] = useState('')
   const [password,setPassword] = useState('');
   const [loading,setLoading] = useState(false)
@@ -26,7 +28,7 @@ const LoginPage = () => {
         throw new Error(data.message || "Login Failed") 
       }
 
-      localStorage.setItem("token",data.token)
+      login(data.token)
       toast.success("Logged in! 🎊")
 
       setEmail("")

@@ -5,12 +5,19 @@ import AuthLayout from './components/AuthLayout'
 import { HomePage } from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
 import SignUpPage from './pages/SignUpPage'
+import ProtectedRoute from './components/ProtectedRoute'
 
 
 const router = createBrowserRouter([
   {
     path:'/',
-    element:<HomePage />
+    element:<ProtectedRoute />,
+    children:[
+      {
+        path:'',
+        element:<HomePage />
+      }
+    ]
   },
   {
     path:"/auth",
